@@ -99,6 +99,7 @@ jobs:
           }
       - uses: actions/upload-artifact@v6
         with:
+          retention-days: 7
           name: Shambu-${{ matrix.artifact }}
           path: app/release-assets/*
           if-no-files-found: error
@@ -112,6 +113,7 @@ jobs:
       - uses: actions/upload-artifact@v6
         if: runner.os == 'macOS'
         with:
+          retention-days: 7
           name: Shambu-Mac-Updater-unsigned
           path: app/update-assets/*.tar.gz
           if-no-files-found: error
@@ -131,6 +133,7 @@ jobs:
       - uses: actions/upload-artifact@v6
         if: runner.os == 'Windows'
         with:
+          retention-days: 7
           name: Shambu-Host-${{ matrix.artifact }}
           path: app/host-assets/*.zip
           if-no-files-found: error
@@ -174,6 +177,7 @@ jobs:
 
       - uses: actions/upload-artifact@v6
         with:
+          retention-days: 7
           name: Shambu-Android-arm64-unsigned
           path: app/src-tauri/gen/android/app/build/outputs/apk/**/*.apk
           if-no-files-found: error
